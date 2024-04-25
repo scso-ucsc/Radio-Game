@@ -32,7 +32,7 @@ public class PartGenerator : MonoBehaviour
     }
     private void SpawnPart(Vector3 spawnPosition)
     {
-        float minY = -2f;
+        float minY = -3f;
         float maxY = 1.5f;
         float randomY = Random.Range(minY, maxY);
 
