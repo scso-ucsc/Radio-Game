@@ -33,6 +33,12 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collider){ //If player touches water below them, GAME OVER!!!
+        if(collider.gameObject.tag == "Water"){
+            Debug.Log("Game Over!!!");
+        }
+    }
+
     public void onSliderChanged(float value){ //Update Radio Volume upon slider change
         radioVolume = value;
     }
