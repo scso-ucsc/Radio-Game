@@ -34,7 +34,7 @@ public class PlayerManager : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collider){ //If player touches water below them, GAME OVER!!!
-        if(collider.gameObject.tag == "Water"){
+        if(collider.gameObject.tag == "Water" || collider.gameObject.tag == "Obstacle"){
             Debug.Log("Game Over!!!");
         }
     }
