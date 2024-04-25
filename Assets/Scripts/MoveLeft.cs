@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveLeft : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    public float moveSpeed = 1f;
 
     // Update is called once per frame
     void Update()
