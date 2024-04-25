@@ -32,8 +32,8 @@ public class PartGenerator : MonoBehaviour
     }
     private void SpawnPart(Vector3 spawnPosition)
     {
-        float minY = mainCamera.ViewportToWorldPoint(Vector3.zero).y;
-        float maxY = mainCamera.ViewportToWorldPoint(Vector3.one).y;
+        float minY = -2f;
+        float maxY = 1.5f;
         float randomY = Random.Range(minY, maxY);
 
         Vector3 spawnPosWithRandomY = new Vector3(spawnPosition.x, randomY, spawnPosition.z);
