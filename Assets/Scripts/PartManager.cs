@@ -16,6 +16,8 @@ public class PartGenerator : MonoBehaviour
         lastEndPos = partStart.Find("EndPosition").position;
         StartCoroutine(SpawnPartsCoroutine());
     }
+
+
     private IEnumerator SpawnPartsCoroutine()
     {
         while (true)
