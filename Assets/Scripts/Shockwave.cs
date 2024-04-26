@@ -13,7 +13,7 @@ public class Shockwave : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.GetComponent<Rigidbody2D>().AddRelativeForce(Vector3.right * 1); //This will cause the shockwave object to become exponentially faster
+        this.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.right * 1); //This will cause the shockwave object to become exponentially faster
         if(this.gameObject.transform.position.x >= 11){ //If shockwave gameObject goes off screen, deactivate and reset velocity to 0
             this.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
             this.gameObject.SetActive(false);

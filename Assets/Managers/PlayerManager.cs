@@ -46,6 +46,7 @@ public class PlayerManager : MonoBehaviour
         if(collider.gameObject.tag == "Water" || collider.gameObject.tag == "Obstacle"){
             GameManager.instance.gameOver();
         } else if(collider.gameObject.tag == "Battery"){
+            collider.gameObject.SetActive(false);
             playerHasAmmo = true;
         }
     }

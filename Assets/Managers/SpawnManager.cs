@@ -6,7 +6,7 @@ public class SpawnManager : MonoBehaviour
 {
     public static SpawnManager instance;
     private List<GameObject> cloudList = new List<GameObject>();
-    [SerializeField] private GameObject cloudObj;
+    [SerializeField] private GameObject cloudObj, batteryObj;
     [SerializeField] private Transform cloudParent;
 
     void Awake(){
@@ -28,6 +28,7 @@ public class SpawnManager : MonoBehaviour
         }
 
         StartCoroutine(spawnClouds());
+        StartCoroutine(spawnBattery());
     }
 
     // Update is called once per frame
@@ -56,5 +57,14 @@ public class SpawnManager : MonoBehaviour
             }
         }
         return null;
+    }
+
+    IEnumerator spawnBattery(){
+        while(GameManager.instance.getGameOverStatus() == false){
+            yield return new WaitForSeconds(10.0f); //Spawn the battery every 10 seconds
+            batteryObj.transform.position = new Vector3(10.5f, Random.Range(-2.25f, 3.45f), 0); //Resetting position of battery
+            batteryObj.SetActive(true);
+            batteryObj.GetComponent<Rigidbody2D>().velocity = Vector2.left * 3;
+        }
     }
 }
