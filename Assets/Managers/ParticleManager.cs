@@ -33,7 +33,7 @@ public class ParticleManager : MonoBehaviour
     }
 
     IEnumerator emitAudioParticles(){ //Depending on current volume, fire audio particles
-        while(true){
+        while(GameManager.instance.getGameOverStatus() == false){
             emissionRate = volumeSlider.value;
             yield return new WaitForSeconds(1.1f - (emissionRate / 10.0f));
             audioParticles.Play();

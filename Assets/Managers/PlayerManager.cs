@@ -7,7 +7,6 @@ public class PlayerManager : MonoBehaviour
     public static PlayerManager instance;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float radioVolume = 5.0f; //Speed of flight (Min: 5.0f, Max 25.0f)
-    [SerializeField] private LayerMask groundLayer;
 
     void Awake(){
         if(instance == null){
@@ -26,16 +25,18 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(radioVolume > 0){ //Add upwards force to player based on radio volume
-            rb.velocity = Vector2.up * radioVolume;
-        } else{
-            rb.velocity = Vector2.up * 0f;
+        if(GameManager.instance.getGameOverStatus() == false){
+            if(radioVolume > 0){ //Add upwards force to player based on radio volume
+                rb.velocity = Vector2.up * radioVolume;
+            } else{
+                rb.velocity = Vector2.up * 0f;
+            }
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collider){ //If player touches water below them, GAME OVER!!!
+    private void OnCollisionEnter2D(Collision2D collider){ //If player touches water below them or hits an obstacle, inform GameManager isGameOver = true
         if(collider.gameObject.tag == "Water" || collider.gameObject.tag == "Obstacle"){
-            Debug.Log("Game Over!!!");
+            GameManager.instance.gameOver();
         }
     }
 
