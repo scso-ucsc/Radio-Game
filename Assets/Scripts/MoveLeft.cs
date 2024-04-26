@@ -10,7 +10,10 @@ public class MoveLeft : MonoBehaviour
     void Update()
     {
         float moveAmount = moveSpeed * Time.deltaTime;
-
         transform.Translate(Vector3.left * moveAmount);
+
+        if(this.gameObject.transform.position.x <= -13.85){
+            this.gameObject.SetActive(false);
+        }
     }
 }
