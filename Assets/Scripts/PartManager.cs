@@ -50,7 +50,7 @@ public class PartGenerator : MonoBehaviour
         {
             yield return null;
 
-            if (partTransform.position.x + 12 < mainCamera.ViewportToWorldPoint(Vector3.zero).x)
+            if (partTransform.position.x + 5 < mainCamera.ViewportToWorldPoint(Vector3.zero).x)
             {
                 Destroy(partTransform.gameObject);
                 break;
