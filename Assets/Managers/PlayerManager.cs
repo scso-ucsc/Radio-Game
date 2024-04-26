@@ -7,6 +7,9 @@ public class PlayerManager : MonoBehaviour
     public static PlayerManager instance;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float radioVolume = 5.0f; //Speed of flight (Min: 5.0f, Max 25.0f)
+    [SerializeField] private GameObject shockwaveObj;
+    [SerializeField] private Transform shockwaveSpawnLocation;
+    private bool playerHasAmmo;
 
     void Awake(){
         if(instance == null){
@@ -20,6 +23,7 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         radioVolume = 5.0f;
+        playerHasAmmo = true; //Starts game with ammo
     }
 
     // Update is called once per frame
@@ -31,12 +35,18 @@ public class PlayerManager : MonoBehaviour
             } else{
                 rb.velocity = Vector2.up * 0f;
             }
+
+            if(Input.GetKeyDown(KeyCode.Space) && playerHasAmmo){
+                fireShockWave();
+            }
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collider){ //If player touches water below them or hits an obstacle, inform GameManager isGameOver = true
         if(collider.gameObject.tag == "Water" || collider.gameObject.tag == "Obstacle"){
             GameManager.instance.gameOver();
+        } else if(collider.gameObject.tag == "Battery"){
+            playerHasAmmo = true;
         }
     }
 
@@ -46,5 +56,11 @@ public class PlayerManager : MonoBehaviour
 
     public float getRadioForce(){ //For UI
         return radioVolume;
+    }
+
+    private void fireShockWave(){
+        shockwaveObj.transform.position = shockwaveSpawnLocation.position;
+        shockwaveObj.SetActive(true);
+        playerHasAmmo = false;
     }
 }

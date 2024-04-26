@@ -39,7 +39,7 @@ public class SpawnManager : MonoBehaviour
     IEnumerator spawnClouds(){
         while(GameManager.instance.getGameOverStatus() == false){
             yield return new WaitForSeconds(3.0f);
-            Vector3 spawnLocation = new Vector3(12.5f, Random.Range(-1.13f, 3.65f), 0f); //Generating random spawn point
+            Vector3 spawnLocation = new Vector3(12.5f, Random.Range(-1.13f, 3.65f), 9f); //Generating random spawn point
 
             GameObject chosenCloud = getCloud();
             if(chosenCloud != null){
