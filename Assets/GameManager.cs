@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     private bool isGameOver;
+    private float playerScore;
 
     void Awake(){
         if(instance == null){
@@ -19,12 +20,13 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         isGameOver = false;
+        playerScore = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        playerScore += 1.0f * Time.deltaTime;
     }
 
     public void gameOver(){
@@ -33,5 +35,9 @@ public class GameManager : MonoBehaviour
 
     public bool getGameOverStatus(){
         return isGameOver;
+    }
+
+    public int getPlayerScore(){
+        return (int)playerScore;
     }
 }
