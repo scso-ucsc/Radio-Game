@@ -20,9 +20,10 @@ public class Shockwave : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collider){ //If shockwave hits obstacle, destroy it
+    private void OnCollisionEnter2D(Collision2D collider){ //If shockwave hits obstacle, deactivate it
         if(collider.gameObject.tag == "Obstacle"){
-            //Destroy Obstacle
+            collider.gameObject.SetActive(false);
+            this.gameObject.SetActive(false);
         }
     }
 }
