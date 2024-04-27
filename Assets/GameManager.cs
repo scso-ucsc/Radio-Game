@@ -5,6 +5,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    private bool isGameOver;
+    private float playerScore;
 
     void Awake(){
         if(instance == null){
@@ -17,12 +19,27 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        isGameOver = false;
+        playerScore = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(isGameOver == false){
+            playerScore += 1.0f * Time.deltaTime;
+        }
+    }
+
+    public void gameOver(){
+        isGameOver = true;
+    }
+
+    public bool getGameOverStatus(){
+        return isGameOver;
+    }
+
+    public int getPlayerScore(){
+        return (int)playerScore;
     }
 }

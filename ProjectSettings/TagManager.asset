@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Water
   - Obstacle
+  - Battery
   layers:
   - Default
   - TransparentFX

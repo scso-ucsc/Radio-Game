@@ -30,6 +30,10 @@ public class AudioManager : MonoBehaviour
     }
 
     public void changeVolume(){
-        AudioListener.volume = volumeSlider.value / 10.0f; //Adjusting volume based on slider
+        if(volumeSlider.value == 0){ //For the sake of realism, if audio slider is at 0, then volume will be 0
+            AudioListener.volume = 0;
+        } else{
+            AudioListener.volume = 0.5f + (volumeSlider.value / 10.0f); //Adjusting volume based on slider
+        }
     }
 }
