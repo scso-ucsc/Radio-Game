@@ -1412,27 +1412,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6798108466452643761, guid: 18f0a466eb1a64c2db72baa605be231e, type: 3}
   m_PrefabInstance: {fileID: 4913739576309186598}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &815433625
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 815433619}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d65035853c95b1a488069437fca212a5, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &846560758
 GameObject:
   m_ObjectHideFlags: 0
@@ -7535,6 +7514,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1920317116016094254, guid: 4cef3e84aab824e959dd4cf2ca8c567b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e530339c2faf6474c8f9f382b2a006ea, type: 3}
+    - target: {fileID: 1920317116016094254, guid: 4cef3e84aab824e959dd4cf2ca8c567b, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1920317116016094254, guid: 4cef3e84aab824e959dd4cf2ca8c567b, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1920317116016094254, guid: 4cef3e84aab824e959dd4cf2ca8c567b, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6582147671589903448, guid: 4cef3e84aab824e959dd4cf2ca8c567b, type: 3}
       propertyPath: m_Name
       value: Battery
@@ -7631,14 +7626,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1058360809766538125, guid: 18f0a466eb1a64c2db72baa605be231e, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.28
-      objectReference: {fileID: 0}
-    - target: {fileID: 1058360809766538125, guid: 18f0a466eb1a64c2db72baa605be231e, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.28
-      objectReference: {fileID: 0}
     - target: {fileID: 1432436869733063380, guid: 18f0a466eb1a64c2db72baa605be231e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.149994
@@ -7679,22 +7666,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4356573160184388029, guid: 18f0a466eb1a64c2db72baa605be231e, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -116539346, guid: fc29335937c732b48aa558fb87afa5db, type: 3}
-    - target: {fileID: 4356573160184388029, guid: 18f0a466eb1a64c2db72baa605be231e, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4356573160184388029, guid: 18f0a466eb1a64c2db72baa605be231e, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4356573160184388029, guid: 18f0a466eb1a64c2db72baa605be231e, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6798108466452643761, guid: 18f0a466eb1a64c2db72baa605be231e, type: 3}
       propertyPath: m_Name
       value: ShockWave
@@ -7702,10 +7673,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6798108466452643761, guid: 18f0a466eb1a64c2db72baa605be231e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 815433625}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18f0a466eb1a64c2db72baa605be231e, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
