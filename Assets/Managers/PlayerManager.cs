@@ -9,7 +9,7 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private float radioVolume = 5.0f; //Speed of flight (Min: 5.0f, Max 25.0f)
     [SerializeField] private GameObject shockwaveObj;
     [SerializeField] private Transform shockwaveSpawnLocation;
-    private bool playerHasAmmo;
+    private bool playerHasAmmo, isFiring;
 
     void Awake(){
         if(instance == null){
@@ -24,6 +24,7 @@ public class PlayerManager : MonoBehaviour
     {
         radioVolume = 5.0f;
         playerHasAmmo = true; //Starts game with ammo
+        isFiring = false;
     }
 
     // Update is called once per frame
@@ -60,8 +61,21 @@ public class PlayerManager : MonoBehaviour
     }
 
     private void fireShockWave(){
+        isFiring = true;
         shockwaveObj.transform.position = shockwaveSpawnLocation.position;
         shockwaveObj.SetActive(true);
         playerHasAmmo = false;
+    }
+
+    public bool getIsFiringStatus(){ //For UI Manager
+        return isFiring;
+    }
+
+    public void switchIsFiringOff(){ //For shockwave
+        isFiring = false;
+    }
+
+    public bool getPlayerHasAmmo(){ //For UI Manager
+        return playerHasAmmo;
     }
 }
