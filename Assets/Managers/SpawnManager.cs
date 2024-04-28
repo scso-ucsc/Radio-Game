@@ -7,9 +7,9 @@ public class SpawnManager : MonoBehaviour
     public static SpawnManager instance;
     private List<GameObject> cloudList = new List<GameObject>();
     private List<GameObject> seagullList = new List<GameObject>();
-    [SerializeField] private GameObject cloudObj, batteryObj, seagullObj;
+    [SerializeField] private GameObject cloudObj, batteryObj, seagullObj, seaplaneObj;
     [SerializeField] private Transform cloudParent, seagullParent;
-    private float seagullSpawnTime;
+    private float seagullSpawnTime, seaplaneSpawnTime;
 
     void Awake(){
         if(instance == null){
@@ -24,6 +24,7 @@ public class SpawnManager : MonoBehaviour
     {
         //Defining Initial Spawn Times
         seagullSpawnTime = 2.0f;
+        seaplaneSpawnTime = 6.0f;
 
         for(int i = 0; i < 3; i++){ //Instantiating Clouds
             Vector3 spawnPoint = new Vector3(0, 0, 0);
@@ -42,6 +43,7 @@ public class SpawnManager : MonoBehaviour
         StartCoroutine(spawnClouds());
         StartCoroutine(spawnBattery());
         StartCoroutine(spawnSeagulls());
+        StartCoroutine(spawnSeaplane());
         StartCoroutine(increaseDifficulty());
     }
 
@@ -102,11 +104,23 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
+    IEnumerator spawnSeaplane(){
+        while(GameManager.instance.getGameOverStatus() == false){
+            yield return new WaitForSeconds(seaplaneSpawnTime); //Sending seaplane
+            seaplaneObj.transform.position = new Vector2(10.5f, Random.Range(-2.25f, 3.45f));
+            seaplaneObj.SetActive(true);
+            seaplaneObj.GetComponent<Rigidbody2D>().velocity = Vector2.left * 7;
+        }
+    }
+
     IEnumerator increaseDifficulty(){
         while(GameManager.instance.getGameOverStatus() == false){
             yield return new WaitForSeconds(10.0f); //Difficulty increases every 10 seconds
             if(seagullSpawnTime > 0.25f){ //Lower spawn time = faster spawn rate
                 seagullSpawnTime -= 0.25f;
+            }
+            if(seaplaneSpawnTime > 4.0f){
+                seagullSpawnTime -= 0.5f;
             }
         }
     }
