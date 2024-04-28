@@ -929,6 +929,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 2140036211}
+  onButton: {fileID: 722515588}
+  offButton: {fileID: 1654771593}
+  pauseButton: {fileID: 2105627811}
+  playButton: {fileID: 1744010529}
 --- !u!1 &427819447
 GameObject:
   m_ObjectHideFlags: 0
@@ -2006,7 +2010,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 29c84ca5d52107d4382e493265df1ce9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9241c8b8e37a54d47831460f9e46860c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2093,7 +2097,7 @@ GameObject:
   - component: {fileID: 1744010532}
   - component: {fileID: 1744010531}
   m_Layer: 5
-  m_Name: P2_Pause
+  m_Name: P2_Play
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7307,7 +7311,7 @@ GameObject:
   - component: {fileID: 2105627814}
   - component: {fileID: 2105627813}
   m_Layer: 5
-  m_Name: P2_Play
+  m_Name: P2_Pause
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
