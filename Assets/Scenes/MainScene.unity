@@ -9214,7 +9214,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2103747428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9507,6 +9507,18 @@ PrefabInstance:
     - target: {fileID: 6582147671589903448, guid: 4cef3e84aab824e959dd4cf2ca8c567b, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7138440451501451541, guid: 4cef3e84aab824e959dd4cf2ca8c567b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.26703727
+      objectReference: {fileID: 0}
+    - target: {fileID: 7138440451501451541, guid: 4cef3e84aab824e959dd4cf2ca8c567b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.26703727
+      objectReference: {fileID: 0}
+    - target: {fileID: 7138440451501451541, guid: 4cef3e84aab824e959dd4cf2ca8c567b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.26703727
       objectReference: {fileID: 0}
     - target: {fileID: 7138440451501451541, guid: 4cef3e84aab824e959dd4cf2ca8c567b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9858,7 +9870,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.2704254, g: 0.9716981, b: 0.27601916, a: 1}
+      maxColor: {r: 0.6839622, g: 1, b: 0.68572783, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}

@@ -46,7 +46,11 @@ public class PlayerManager : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collider){ //If player touches water below them or hits an obstacle, inform GameManager isGameOver = true
         if(collider.gameObject.tag == "Water" || collider.gameObject.tag == "Obstacle"){
             GameManager.instance.gameOver();
-        } else if(collider.gameObject.tag == "Battery"){
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider){ //If player collides with battery, regain ammo
+        if(collider.gameObject.tag == "Battery"){
             collider.gameObject.SetActive(false);
             playerHasAmmo = true;
         }
