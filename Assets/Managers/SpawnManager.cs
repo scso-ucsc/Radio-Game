@@ -114,7 +114,7 @@ public class SpawnManager : MonoBehaviour
     }
 
     IEnumerator increaseDifficulty(){
-        while(GameManager.instance.getGameOverStatus() == false){
+        if(GameManager.instance.getGameOverStatus() == false){
             yield return new WaitForSeconds(10.0f); //Difficulty increases every 10 seconds
             if(seagullSpawnTime > 0.25f){ //Lower spawn time = faster spawn rate
                 seagullSpawnTime -= 0.25f;
