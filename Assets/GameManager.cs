@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     private bool isGameOver;
     private float playerScore;
 
+    public GameObject Ending;
+
     void Awake(){
         if(instance == null){
             instance = this;
@@ -28,6 +30,10 @@ public class GameManager : MonoBehaviour
     {
         if(isGameOver == false){
             playerScore += 1.0f * Time.deltaTime;
+        }
+        if (isGameOver)
+        {
+            Ending.SetActive(true);
         }
     }
 

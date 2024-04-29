@@ -6,7 +6,7 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
-    [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private TextMeshProUGUI scoreText, Ending_score;
     [SerializeField] private GameObject onButton, offButton, pauseButton, playButton;
 
     void Awake(){
@@ -30,6 +30,7 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         scoreText.text = GameManager.instance.getPlayerScore().ToString();
+        Ending_score.text = "Score: " + GameManager.instance.getPlayerScore().ToString();
         
         if(PlayerManager.instance.getPlayerHasAmmo() == true){ //Updating on-off button when player has ammo
             onButton.SetActive(true);
