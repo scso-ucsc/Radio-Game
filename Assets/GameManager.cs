@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     {
         isGameOver = false;
         playerScore = 0;
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
         }
         if (isGameOver)
         {
+            Time.timeScale = 0;
             Ending.SetActive(true);
         }
     }

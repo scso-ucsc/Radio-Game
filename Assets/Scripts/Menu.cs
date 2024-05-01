@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Menu : MonoBehaviour
 {
+    public static Menu instance;
     public static bool GameIsPause = false;
 
     public GameObject Paused;
     public GameObject P2_paused;
+
 
     public void GamePause()
     {
@@ -27,7 +29,7 @@ public class Menu : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && GameManager.instance.getGameOverStatus() != true)
         {
             if (GameIsPause == true){
                 GameStart();
