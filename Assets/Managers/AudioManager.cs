@@ -10,6 +10,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private Slider volumeSlider;
     [SerializeField] private AudioSource playerAudioSource, impactSoundSource;
     [SerializeField] private AudioClip shockwaveSound, batterySound;
+    [SerializeField] private GameObject impactParticleEmitter;
+    private ParticleSystem impactParticles;
 
     void Awake(){
         if(instance == null){
@@ -23,6 +25,8 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         radioMusic.Play(); //Playing Background Music
+        
+        impactParticles = impactParticleEmitter.GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -50,7 +54,8 @@ public class AudioManager : MonoBehaviour
     }
 
     public void impactSoundPlay(Vector2 loadPosition){
-        impactSoundSource.transform.position = loadPosition;
+        impactSoundSource.transform.position = loadPosition; //Moving position of impact source
+        impactParticles.Play(); //Playing particles and audio
         impactSoundSource.Play();
     }
 }
