@@ -23,6 +23,7 @@ public class Shockwave : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collider){ //If shockwave hits obstacle, deactivate it
         if(collider.gameObject.tag == "Obstacle"){
+            AudioManager.instance.impactSoundPlay(this.gameObject.transform.position);
             collider.gameObject.SetActive(false);
             PlayerManager.instance.switchIsFiringOff();
             this.gameObject.SetActive(false);

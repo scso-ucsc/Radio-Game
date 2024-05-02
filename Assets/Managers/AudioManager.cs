@@ -8,6 +8,8 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
     [SerializeField] private AudioSource radioMusic; //Background Music
     [SerializeField] private Slider volumeSlider;
+    [SerializeField] private AudioSource playerAudioSource, impactSoundSource;
+    [SerializeField] private AudioClip shockwaveSound, batterySound;
 
     void Awake(){
         if(instance == null){
@@ -35,5 +37,20 @@ public class AudioManager : MonoBehaviour
         } else{
             AudioListener.volume = 0.5f + (volumeSlider.value / 10.0f); //Adjusting volume based on slider
         }
+    }
+
+    public void playPlayerSound(string soundName){
+        if(soundName == "shockwave"){
+            playerAudioSource.clip = shockwaveSound;
+            playerAudioSource.Play();
+        } else{ //soundName == "battery"
+            playerAudioSource.clip = batterySound;
+            playerAudioSource.Play();
+        }
+    }
+
+    public void impactSoundPlay(Vector2 loadPosition){
+        impactSoundSource.transform.position = loadPosition;
+        impactSoundSource.Play();
     }
 }

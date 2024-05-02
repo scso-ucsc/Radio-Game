@@ -38,6 +38,7 @@ public class PlayerManager : MonoBehaviour
             }
 
             if(Input.GetKeyDown(KeyCode.Space) && playerHasAmmo){
+                AudioManager.instance.playPlayerSound("shockwave");
                 fireShockWave();
             }
         }
@@ -51,6 +52,7 @@ public class PlayerManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider){ //If player collides with battery, regain ammo
         if(collider.gameObject.tag == "Battery"){
+            AudioManager.instance.playPlayerSound("battery");
             collider.gameObject.SetActive(false);
             playerHasAmmo = true;
         }
