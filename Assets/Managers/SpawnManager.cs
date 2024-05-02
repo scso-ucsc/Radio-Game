@@ -54,13 +54,15 @@ public class SpawnManager : MonoBehaviour
     }
 
     IEnumerator spawnClouds(){
-        yield return new WaitForSeconds(3.0f);
-        Vector3 spawnLocation = new Vector3(12.5f, Random.Range(-1.13f, 3.65f), 9f); //Generating random spawn point
+        while(GameManager.instance.getGameOverStatus() == false){
+            yield return new WaitForSeconds(3.0f);
+            Vector3 spawnLocation = new Vector3(12.5f, Random.Range(-1.13f, 3.65f), 1f); //Generating random spawn point
 
-        GameObject chosenCloud = getObject("cloud");
-        if(chosenCloud != null){
-            chosenCloud.transform.position = spawnLocation;
-            chosenCloud.SetActive(true);
+            GameObject chosenCloud = getObject("cloud");
+            if(chosenCloud != null){
+                chosenCloud.transform.position = spawnLocation;
+                chosenCloud.SetActive(true);
+            }
         }
     }
 
