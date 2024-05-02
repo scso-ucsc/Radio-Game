@@ -6676,6 +6676,8 @@ MonoBehaviour:
   impactSoundSource: {fileID: 49843026}
   shockwaveSound: {fileID: 8300000, guid: c758d3a4f786a46468309d561a777e97, type: 3}
   batterySound: {fileID: 8300000, guid: 8ebc31e3954444e6d958cedefed45b7d, type: 3}
+  splashSound: {fileID: 8300000, guid: 9bb1dc1e35e3c43ac80570fb2229c9d5, type: 3}
+  hurtSound: {fileID: 8300000, guid: ca266832ac39c4b11bdc0c27e6d94a51, type: 3}
   impactParticleEmitter: {fileID: 49843025}
 --- !u!114 &413963815
 MonoBehaviour:

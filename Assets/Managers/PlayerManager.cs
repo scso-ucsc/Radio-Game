@@ -45,7 +45,11 @@ public class PlayerManager : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collider){ //If player touches water below them or hits an obstacle, inform GameManager isGameOver = true
-        if(collider.gameObject.tag == "Water" || collider.gameObject.tag == "Obstacle"){
+        if(collider.gameObject.tag == "Water"){
+            AudioManager.instance.playPlayerSound("water");
+            GameManager.instance.gameOver();
+        } else if(collider.gameObject.tag == "Obstacle"){
+            AudioManager.instance.playPlayerSound("hurt");
             GameManager.instance.gameOver();
         }
     }

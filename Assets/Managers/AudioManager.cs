@@ -9,7 +9,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource radioMusic; //Background Music
     [SerializeField] private Slider volumeSlider;
     [SerializeField] private AudioSource playerAudioSource, impactSoundSource;
-    [SerializeField] private AudioClip shockwaveSound, batterySound;
+    [SerializeField] private AudioClip shockwaveSound, batterySound, splashSound, hurtSound;
     [SerializeField] private GameObject impactParticleEmitter;
     private ParticleSystem impactParticles;
 
@@ -25,7 +25,7 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         radioMusic.Play(); //Playing Background Music
-        
+
         impactParticles = impactParticleEmitter.GetComponent<ParticleSystem>();
     }
 
@@ -46,11 +46,14 @@ public class AudioManager : MonoBehaviour
     public void playPlayerSound(string soundName){
         if(soundName == "shockwave"){
             playerAudioSource.clip = shockwaveSound;
-            playerAudioSource.Play();
+        } else if(soundName == "water"){
+            playerAudioSource.clip = splashSound;
+        } else if(soundName == "hurt"){
+            playerAudioSource.clip = hurtSound;
         } else{ //soundName == "battery"
             playerAudioSource.clip = batterySound;
-            playerAudioSource.Play();
         }
+        playerAudioSource.Play();
     }
 
     public void impactSoundPlay(Vector2 loadPosition){
