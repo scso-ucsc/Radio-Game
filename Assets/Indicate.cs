@@ -6,7 +6,7 @@ public class Indicate : MonoBehaviour
 {
     private Renderer objectRenderer;
     private Color startColor = Color.white;
-    private Color endColor = Color.red;
+    private Color endColor = Color.green;
     private float transitionDuration = 1.0f;
 
     // Start is called before the first frame update
