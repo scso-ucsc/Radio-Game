@@ -14796,6 +14796,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Battery
       objectReference: {fileID: 0}
+    - target: {fileID: 6582147671589903448, guid: 4cef3e84aab824e959dd4cf2ca8c567b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7138440451501451541, guid: 4cef3e84aab824e959dd4cf2ca8c567b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.48419198
+      objectReference: {fileID: 0}
+    - target: {fileID: 7138440451501451541, guid: 4cef3e84aab824e959dd4cf2ca8c567b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.48419198
+      objectReference: {fileID: 0}
+    - target: {fileID: 7138440451501451541, guid: 4cef3e84aab824e959dd4cf2ca8c567b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.48419198
+      objectReference: {fileID: 0}
     - target: {fileID: 7138440451501451541, guid: 4cef3e84aab824e959dd4cf2ca8c567b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.4
