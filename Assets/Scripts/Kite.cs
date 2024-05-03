@@ -10,8 +10,8 @@ public class Kite : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         direction = "down";
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -22,15 +22,16 @@ public class Kite : MonoBehaviour
 
     IEnumerator changeFloatDirection(){
         while(GameManager.instance.getGameOverStatus() == false){
-            rb.velocity = Vector2.zero;
+            yield return new WaitForSeconds(1f);
             if(direction == "down"){ //Switching float direction based on current
+                rb.velocity = Vector2.zero;
                 rb.velocity = Vector2.down * 1;
                 direction = "up";
             } else{
+                rb.velocity = Vector2.zero;
                 rb.velocity = Vector2.up * 1;
                 direction = "down";
             }
-            yield return new WaitForSeconds(1f);
         }
     }
 

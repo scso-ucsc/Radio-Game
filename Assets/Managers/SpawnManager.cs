@@ -111,7 +111,7 @@ public class SpawnManager : MonoBehaviour
     IEnumerator spawnSeaplane(){
         while(GameManager.instance.getGameOverStatus() == false){
             yield return new WaitForSeconds(seaplaneSpawnTime); //Sending seaplane
-            seaplaneObj.transform.position = new Vector2(10.5f, Random.Range(-2.25f, 3.45f));
+            seaplaneObj.transform.position = new Vector2(11.5f, Random.Range(-2.25f, 3.45f));
             seaplaneObj.SetActive(true);
             seaplaneObj.GetComponent<Rigidbody2D>().velocity = Vector2.left * 7;
         }
@@ -120,12 +120,12 @@ public class SpawnManager : MonoBehaviour
     IEnumerator spawnKite(){
         while(GameManager.instance.getGameOverStatus() == false){
             yield return new WaitForSeconds(kiteSpawnTime); //Sending kite
-            kiteObj.transform.position = new Vector2(10.5f, Random.Range(-1.5f, 2.15f));
             if(!kiteObj.activeInHierarchy){ //Reactivating kiteObj if inactive
                 kiteObj.SetActive(true);
-                var kiteScript = kiteObj.GetComponent<Kite>(); //Accessing Kite Script on kiteObj
+                var kiteScript = kiteObj.gameObject.GetComponent<Kite>(); //Accessing Kite Script on kiteObj
                 kiteScript.restartFloatCoroutine(); //Calling restartFloatCoroutine() function in Kite Script
             }
+            kiteObj.transform.position = new Vector2(10.5f, Random.Range(-1.5f, 2.15f));
         }
     }
 
