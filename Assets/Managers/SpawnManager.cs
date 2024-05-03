@@ -7,9 +7,9 @@ public class SpawnManager : MonoBehaviour
     public static SpawnManager instance;
     private List<GameObject> cloudList = new List<GameObject>();
     private List<GameObject> seagullList = new List<GameObject>();
-    [SerializeField] private GameObject cloudObj, batteryObj, seagullObj, seaplaneObj;
+    [SerializeField] private GameObject cloudObj, batteryObj, seagullObj, seaplaneObj, kiteObj;
     [SerializeField] private Transform cloudParent, seagullParent;
-    private float seagullSpawnTime, seaplaneSpawnTime;
+    private float seagullSpawnTime, seaplaneSpawnTime, kiteSpawnTime;
 
     void Awake(){
         if(instance == null){
@@ -25,6 +25,7 @@ public class SpawnManager : MonoBehaviour
         //Defining Initial Spawn Times
         seagullSpawnTime = 2.0f;
         seaplaneSpawnTime = 6.0f;
+        kiteSpawnTime = 7.5f;
 
         for(int i = 0; i < 3; i++){ //Instantiating Clouds
             Vector3 spawnPoint = new Vector3(0, 0, 0);
@@ -44,6 +45,7 @@ public class SpawnManager : MonoBehaviour
         StartCoroutine(spawnBattery());
         StartCoroutine(spawnSeagulls());
         StartCoroutine(spawnSeaplane());
+        StartCoroutine(spawnKite());
         StartCoroutine(increaseDifficulty());
     }
 
@@ -115,6 +117,18 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
+    IEnumerator spawnKite(){
+        while(GameManager.instance.getGameOverStatus() == false){
+            yield return new WaitForSeconds(kiteSpawnTime); //Sending kite
+            kiteObj.transform.position = new Vector2(10.5f, Random.Range(-1.5f, 2.15f));
+            if(!kiteObj.activeInHierarchy){ //Reactivating kiteObj if inactive
+                kiteObj.SetActive(true);
+                var kiteScript = kiteObj.GetComponent<Kite>(); //Accessing Kite Script on kiteObj
+                kiteScript.restartFloatCoroutine(); //Calling restartFloatCoroutine() function in Kite Script
+            }
+        }
+    }
+
     IEnumerator increaseDifficulty(){
         if(GameManager.instance.getGameOverStatus() == false){
             yield return new WaitForSeconds(10.0f); //Difficulty increases every 10 seconds
@@ -122,7 +136,7 @@ public class SpawnManager : MonoBehaviour
                 seagullSpawnTime -= 0.25f;
             }
             if(seaplaneSpawnTime > 4.0f){
-                seagullSpawnTime -= 0.5f;
+                seaplaneSpawnTime -= 0.5f;
             }
         }
     }
